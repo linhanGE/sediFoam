@@ -30,7 +30,8 @@ for (int corr = 0; corr < nCorr; corr++)
         if (isA<zeroGradientFvPatchScalarField>(p.boundaryField()[patchi]))
         {
             // phiDraga.boundaryField()[patchi] = 0.0;
-            phiDragb.boundaryField()[patchi] = 0.0;
+            phiDragb.boundaryField()[patchi].internalField() 
+                == 0.0*phiDragb.boundaryField()[patchi].internalField();
         }
     }
 
